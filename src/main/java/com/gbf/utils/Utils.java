@@ -69,7 +69,7 @@ public class Utils {
         return roomDto;
     }
 
-    private static BookingDto mapBookingsEntityToBookingsDTO(Booking booking) {
+    public static BookingDto mapBookingsEntityToBookingsDTO(Booking booking) {
         BookingDto bookingDto = new BookingDto();
 
         bookingDto.setId(bookingDto.getId());
@@ -100,7 +100,7 @@ public class Utils {
         return userDto;
     }
 
-    private static BookingDto mapBookingEntityToBookingDTOPlusBookedRooms(Booking booking, boolean mapUser) {
+    public static BookingDto mapBookingEntityToBookingDTOPlusBookedRooms(Booking booking, boolean mapUser) {
         BookingDto bookingDto = new BookingDto();
 
         bookingDto.setId(bookingDto.getId());
