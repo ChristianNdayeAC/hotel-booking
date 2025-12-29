@@ -13,6 +13,7 @@ import com.gbf.services.interfac.IBookingService;
 import com.gbf.services.interfac.IRoomService;
 import com.gbf.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -95,12 +96,47 @@ public class BookingService implements IBookingService {
 
     @Override
     public Response getAllBookings() {
-        return null;
+        Response response = new Response();
+
+        try{
+            List<Booking> bookingList = bookingRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+            List<BookingDto> bookingDtoList = Utils.mapBookingListEntityToBookingListDTO(bookingList);
+            response.setStatusCode(200);
+            response.setMessage("successful");
+            response.setBookingList(bookingDtoList);
+
+        } catch(OurException e){
+            response.setStatusCode(404);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error retrieving all booking: " + e.getMessage());
+        }
+
+
+        return response;
     }
 
     @Override
     public Response cancelBooking(Long bookingId) {
-        return null;
+        Response response = new Response();
+
+        try{
+            bookingRepository.findById(bookingId).orElseThrow(() -> new OurException("Booking does not exist."));
+            bookingRepository.deleteById(bookingId);
+            response.setStatusCode(200);
+            response.setMessage("successful");
+
+        } catch(OurException e){
+            response.setStatusCode(404);
+            response.setMessage(e.getMessage());
+        } catch (Exception e) {
+            response.setStatusCode(500);
+            response.setMessage("Error cancelling a booking: " + e.getMessage());
+        }
+
+
+        return response;
     }
 
     private boolean roomIsAvailable(Booking bookingRequest, List<Booking> existingBookings) {
