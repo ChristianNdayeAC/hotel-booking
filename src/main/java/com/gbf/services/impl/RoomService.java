@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class RoomService implements IRoomService {
+public class  RoomService implements IRoomService {
 
     @Autowired
     private RoomRepository roomRepository;

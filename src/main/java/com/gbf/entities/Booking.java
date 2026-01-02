@@ -28,12 +28,12 @@ public class Booking {
     private LocalDate checkOutDate;
 
     @Min(value = 1)
-    private int numOfAdults;
+    private Integer numOfAdults;
 
     @Min(value = 0)
-    private int numOfChildren;
+    private Integer numOfChildren;
 
-    private int totalNumOfGuest;
+    private Integer totalNumOfGuest;
 
     private String bookingConfirmationCode;
 

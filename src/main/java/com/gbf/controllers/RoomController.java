@@ -15,14 +15,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/rooms")
 public class RoomController {
 
     @Autowired
     private IRoomService roomService;
-
-    @Autowired
-    private IBookingService bookingService;
 
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('ADMIN')")

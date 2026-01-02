@@ -23,11 +23,11 @@ public class BookingDto {
 
     private LocalDate checkOutDate;
 
-    private int numOfAdults;
+    private Integer numOfAdults;
 
-    private int numOfChildren;
+    private Integer numOfChildren;
 
-    private int totalNumOfGuest;
+    private Integer totalNumOfGuest;
 
     private String bookingConfirmationCode;
 

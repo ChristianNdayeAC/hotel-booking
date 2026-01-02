@@ -2,7 +2,6 @@ package com.gbf.services;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -20,10 +19,10 @@ public class AwsS3Service {
 
     private final String bucketName = "ghotel-images";
 
-    @Value("aws.s3.access.key")
+    @Value("${aws.s3.access.key}")
     private String awsS3AccessKey;
 
-    @Value("aws.s3.secret.key")
+    @Value("${aws.s3.secret.key}")
     private String awsS3SecretKey;
 
     public String saveImageToS3(MultipartFile file){
@@ -36,13 +35,14 @@ public class AwsS3Service {
 
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                     .withCredentials(new AWSStaticCredentialsProvider(basicAWSCredentials))
-                    .withRegion(Regions.US_EAST_1)
+                    .withRegion("us-east-1")
                     .build();
 
             InputStream inputStream = file.getInputStream();
 
             ObjectMetadata metadata = new ObjectMetadata();
             metadata.setContentType(file.getContentType());
+            metadata.setContentLength(file.getSize());
 
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, s3Filename, inputStream, metadata);
             s3Client.putObject(putObjectRequest);
