@@ -1,12 +1,9 @@
 package com.gbf.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.gbf.entities.Booking;
 import lombok.Data;
-import lombok.NonNull;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data

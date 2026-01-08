@@ -10,7 +10,6 @@ import com.gbf.repositories.BookingRepository;
 import com.gbf.repositories.RoomRepository;
 import com.gbf.repositories.UserRepository;
 import com.gbf.services.interfac.IBookingService;
-import com.gbf.services.interfac.IRoomService;
 import com.gbf.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -23,9 +22,6 @@ public class BookingService implements IBookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
-
-    @Autowired
-    private IRoomService roomService;
 
     @Autowired
     private RoomRepository roomRepository;

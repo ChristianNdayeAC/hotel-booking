@@ -1,7 +1,6 @@
 package com.gbf.controllers;
 
 import com.gbf.dtos.Response;
-import com.gbf.services.interfac.IBookingService;
 import com.gbf.services.interfac.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

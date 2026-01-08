@@ -1,7 +1,6 @@
 package com.gbf.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.gbf.entities.Booking;
 import lombok.Data;
 
 import java.util.ArrayList;

@@ -4,7 +4,6 @@ import com.gbf.dtos.Response;
 import com.gbf.dtos.RoomDto;
 import com.gbf.entities.Room;
 import com.gbf.exceptions.OurException;
-import com.gbf.repositories.BookingRepository;
 import com.gbf.repositories.RoomRepository;
 import com.gbf.services.AwsS3Service;
 import com.gbf.services.interfac.IRoomService;
@@ -23,9 +22,6 @@ public class  RoomService implements IRoomService {
 
     @Autowired
     private RoomRepository roomRepository;
-
-    @Autowired
-    private BookingRepository bookingRepository;
 
     @Autowired
     private AwsS3Service awsS3Service;
